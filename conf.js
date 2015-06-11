@@ -1,8 +1,8 @@
 var conf = {};
 
 conf.dbHost = "localhost";
-conf.dbUser = "root";
-conf.dbPassword = "rahasia";
+conf.dbUser = "sparta";
+conf.dbPassword = "sparta2014";
 conf.dbName = "sparta";
 
 module.exports = conf;

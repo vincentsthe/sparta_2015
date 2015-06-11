@@ -66,7 +66,8 @@ router.post('/register', function (req, res) {
             res.send("Gagal memasukkan data, harap isi form kembali");
           } else {
             fs.readFile(req.files.foto.path, function (err, data) {
-              var path = __dirname + "../public/images/" + fileName;
+              var path = __dirname + "/../public/images/" + fileName;
+              console.log(path);
               fs.writeFile(path, data, function (err) {
                 res.send("Terimakasih telah mengisi data SPARTA 2015");
               });
@@ -87,7 +88,7 @@ router.get('/yang_udah_daftar', function (req, res) {
       console.dir(err);
     } else {
 
-      var query = "SELECT u.id, u.email, u.nim_tpb, u.nim_jurusan, p.fullname"
+      var query = "SELECT u.id, u.email, u.nim_tpb, u.jurusan, p.fullname"
         + " FROM user u"
         + " INNER JOIN player p ON u.id=p.id";
       connection.query(query, function (err, row) {
