@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <form class="col-md-6 col-md-offset-3" action="" method="POST" >
+    <form class="col-md-6 col-md-offset-3" action="" method="POST"  enctype="multipart/form-data">
       <div class="form-group">
         <label for="email">Email address</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" required name="email">
@@ -11,6 +11,11 @@
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" class="form-control" id="password" placeholder="Password" required name="password">
+      </div>
+
+      <div class="form-group">
+        <label for="foto">Foto</label>
+        <input type="file" id="foto" required name="foto">
       </div>
 
       <div class="form-group">
@@ -29,8 +34,19 @@
       </div>
 
       <div class="form-group">
-        <label for="nimJurusan">NIM Jurusan</label>
-        <input type="text" class="form-control" id="nimJurusan" placeholder="NIM Jurusan" required name="nim_jurusan">
+        <div>
+          <label for="nimJurusan">Jurusan</label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" id="Jurusan" placeholder="Jurusan" required name="jurusan" value="IF"> IF
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" id="Jurusan" placeholder="Jurusan" required name="jurusan" value="STI"> STI
+          </label>
+        </div>
       </div>
 
       <div class="form-group">
@@ -65,7 +81,29 @@
 
       <div class="form-group">
         <label for="riwayatPenyakit">Riwayat penyakit</label>
-        <input type="text" class="form-control" id="riwayatPenyakit" placeholder="Riwayat penyakit" required name="riwayat_penyakit">
+        <input type="text" class="form-control" id="riwayatPenyakit" placeholder="Riwayat Penyakit" required name="riwayat_penyakit">
+      </div>
+
+      <div class="form-group">
+        <label for="riwayatPenyakit">Hasil Tes MBTI</label>
+        <select class="form-control" id="riwayatPenyakit" placeholder="Riwayat penyakit" required name="mbti">
+          <option value="ENFJ">ENFJ</option>
+          <option value="INFJ">INFJ</option>
+          <option value="ENFP">ENFP</option>
+          <option value="INFP">INFP</option>
+          <option value="INTJ">INTJ</option>
+          <option value="ENTJ">ENTJ</option>
+          <option value="INTP">INTP</option>
+          <option value="ENTP">ENTP</option>
+          <option value="ESFP">ESFP</option>
+          <option value="ISFP">ISFP</option>
+          <option value="ESFJ">ESFJ</option>
+          <option value="ISFJ">ISFJ</option>
+          <option value="ISTP">ISTP</option>
+          <option value="ESTP">ESTP</option>
+          <option value="ISTJ">ISTJ</option>
+          <option value="ESTJ">ESTJ</option>
+        </select>
       </div>
 
       <div class="form-group">

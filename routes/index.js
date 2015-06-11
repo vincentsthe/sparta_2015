@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var md5 = require('MD5');
+var fs = require('fs');
+var path = require('path');
 
 var driver = require('../utility/driver');
 var userModel = require('../model/user');
@@ -22,7 +24,7 @@ router.post('/register', function (req, res) {
   user.email = postData.email;
   user.password = md5(postData.password);
   user.nim_tpb = postData.nim_tpb;
-  user.nim_jurusan = postData.nim_jurusan;
+  user.jurusan = postData.jurusan;
   user.nomor_telepon = postData.nomor_telepon;
   user.id_twitter = postData.id_twitter;
   user.id_facebook = postData.id_facebook;
@@ -30,13 +32,14 @@ router.post('/register', function (req, res) {
   user.alamat_bandung = postData.alamat_bandung;
   user.golongan_darah = postData.golongan_darah;
   user.riwayat_penyakit = postData.riwayat_penyakit;
+  user.mbti = postData.mbti;
   user.tempat_lahir = postData.tempat_lahir;
   user.tanggal_lahir = postData.tanggal_lahir;
   user.asal_daerah = postData.asal_daerah;
   user.asal_sma = postData.asal_sma;
   user.alamat_rumah = postData.alamat_rumah;
   user.nama_wali = postData.nama_wali;
-  user.kontak_wali = postData.konta
+  user.kontak_wali = postData.kontak_wali;
 
   var player = {};
   player.fullname = postData.nama_lengkap;
@@ -45,22 +48,36 @@ router.post('/register', function (req, res) {
   player.job_level = 0;
   player.infection_level = 0;
 
-  userModel.insert(user, function (err, result) {
-    if (err) {
-      console.dir(err);
-      res.send("Gagal memasukkan data, harap isi form kembali");
-    } else {
-      player.id = result;
-      playerModel.insert(player, function (err, result) {
-        if (err) {
-          console.dir(err);
-          res.send("Gagal memasukkan data, harap isi form kembali");
-        } else {
-          res.send("Terimakasih telah mengisi data SPARTA 2015");
-        }
-      });
-    }
-  });
+  var images = req.files.foto;
+  var fileName = user.nim_tpb;
+  if (images.mimetype=="image/png" || images.mimetype=="image/jpg" || images.mimetype=="image/jpeg") {
+    fileName+= path.extname(images.name);
+    user.foto = fileName;
+
+    userModel.insert(user, function (err, result) {
+      if (err) {
+        console.dir(err);
+        res.send("Gagal memasukkan data, harap isi form kembali");
+      } else {
+        player.id = result;
+        playerModel.insert(player, function (err, result) {
+          if (err) {
+            console.dir(err);
+            res.send("Gagal memasukkan data, harap isi form kembali");
+          } else {
+            fs.readFile(req.files.foto.path, function (err, data) {
+              var path = __dirname + "../public/images/" + fileName;
+              fs.writeFile(path, data, function (err) {
+                res.send("Terimakasih telah mengisi data SPARTA 2015");
+              });
+            });
+          }
+        });
+      }
+    });
+  } else {
+    res.send("photo is not a valid image");
+  }
 });
 
 router.get('/yang_udah_daftar', function (req, res) {
@@ -82,7 +99,7 @@ router.get('/yang_udah_daftar', function (req, res) {
             record.id = row[i].id;
             record.email = row[i].email;
             record.nim_tpb = row[i].nim_tpb;
-            record.nim_jurusan = row[i].nim_jurusan;
+            record.jurusan = row[i].jurusan;
             record.fullname = row[i].fullname;
 
             data.push(record);
