@@ -1,3 +1,4 @@
+
 $('.form').each(function() {
     var $this   = $(this);
     var $slides = $this.find('.form-slide');
@@ -63,6 +64,4 @@ $('.form').each(function() {
         $("#progressbar li").eq(currentIndex + 1).removeClass("active");
       }
     });
-
-
 });

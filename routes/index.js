@@ -97,7 +97,7 @@ module.exports = function (passport) {
         console.dir(err);
       } else {
 
-        var query = "SELECT u.id, u.email, u.nim_tpb, u.nim_jurusan, p.fullname"
+        var query = "SELECT u.id, u.email, u.nim_tpb, u.jurusan, p.fullname"
           + " FROM user u"
           + " INNER JOIN player p ON u.id=p.id";
         connection.query(query, function (err, row) {

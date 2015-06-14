@@ -1,10 +1,10 @@
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.4;
-  color: #FFF;
-  background: transparent linear-gradient(135deg, #0F477A, #091121) repeat fixed 0% 0%;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.4;
+	color: #FFF;
+	background: transparent linear-gradient(135deg, #0F477A, #091121) repeat fixed 0% 0%;
 }
 
 
@@ -14,51 +14,47 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+	font-weight: 700;
 }
 
 .btn-primary {
-  bottom: 30px;
-  padding: 5px 30px;
-  border-radius: 20px;
-  border: 2px solid #0096FF;
-  background: transparent;
-  color: #0096FF;
-  transition: 400ms ease;
+	bottom: 30px;
+	padding: 5px 30px;
+	border-radius: 20px;
+	border: 2px solid #0096FF;
+	background: transparent;
+	color: #0096FF;
+	transition: 400ms ease;
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background: #0096FF;
-  border: 2px solid #0096FF;
+	color: #fff;
+	background: #0096FF;
+	border: 2px solid #0096FF;
 }
 
 .btn-primary:focus,
 .btn-primary:active {
-  background: #0096FF;
-  outline: none !important;
-  border: 2px solid #0096FF;
+	background: #0096FF;
+	outline: none !important;
+	border: 2px solid #0096FF;
 }
 
 .navbar {
-  background: rgba(20, 29, 36, 0.5);
-  border: none;
-}
-
-.navbar-brand {
-  padding: 8px 15px;
+	background: rgba(20, 29, 36, 0.5);
+	border: none;
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover {
-  color: #FFF;
-  border-bottom: 3px solid #0096FF;
-  background: transparent;
+	color: #FFF;
+	border-bottom: 3px solid #0096FF;
+	background: transparent;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #FFF;
+	color: #FFF;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -68,177 +64,177 @@ h6 {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:active {
-  color: #0096FF;
-  outline: none;
+	color: #0096FF;
+	outline: none;
 }
 
 .jumbotron {
-  text-align: center;
-  background: transparent;
+	text-align: center;
+	background: transparent;
 }
 
 .main-quote {
-  margin-top: 1.5em;
+	margin-top: 1.5em;
 
 }
 
 .btn-sign-up {
-  margin-top: 1.5em;
-  padding: 0.4em 2em;
+	margin-top: 1.5em;
+	padding: 0.4em 2em;
 }
 
-.form-control {
-  width: 100%;
-  margin-bottom: 10px;
-  background: rgba(0,0,0,0.3);
-  border: none;
-  outline: none;
-  padding: 0 10px;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-  border: 1px solid rgba(0,0,0,0.3);
-  border-radius: 4px;
-  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
-  transition: box-shadow .5s ease;
+.form-control { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 0 10px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	transition: box-shadow .5s ease;
 }
 
-.form-control:focus {
-  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
-  border: 1px solid rgba(0,0,0,0.3);
+.form-control:focus { 
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
+	border: 1px solid rgba(0,0,0,0.3);
 }
 
 
 .form {
-  background: rgba(255, 255, 255, 0.05) none repeat scroll 0% 0%;
-  padding: 30px 40px;
-  border-radius: 10px;
-  margin: 0px auto;
-  float: none;
+	background: rgba(255, 255, 255, 0.05) none repeat scroll 0% 0%;
+	padding: 30px 40px;
+	border-radius: 10px;
+	margin: 0px auto;
+	float: none;
 }
 
 .form {
-  position: relative;
-  height: 500px;
-  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
-  margin-bottom: 30px;
+	position: relative;
+	height: 500px;
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+	margin-bottom: 30px;
 }
 
 option {
-  background: #212D3B;
+	background: #212D3B;
 }
 
 .form-group {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 form .btn-submit {
-  position: absolute;
-  bottom: 30px;
-  right: 40px;
+	position: absolute;
+	bottom: 30px;
+	right: 40px;
 }
 
 .form-slide.active {
-  opacity: 1;
-  z-index: 2;
+	opacity: 1;
+	z-index: 2;
 }
 
 .form-slide {
-  position: absolute;
-  width: calc(100% - 80px);
-  opacity: 0;
-  /*transition: opacity 500ms ease;*/
-  z-index: 1;
+	position: absolute;
+	width: calc(100% - 80px);
+	opacity: 0;
+	/*transition: opacity 500ms ease;*/
+	z-index: 1;
 }
 
 .nama-lengkap {
-  padding: 0;
+	padding: 0;
 }
 
 .nama-panggilan {
-  padding-right: 0;
+	padding-right: 0;
 }
 
 
 .form-btn-next,
 .form-btn-prev,
 .form-btn-submit {
-  position: absolute;
-  bottom: 30px;
-  padding: 5px 30px;
-  border-radius: 20px;
-  border: 2px solid #0096FF;
-  background: transparent;
-  color: #0096FF;
-  transition: 400ms ease;
-  z-index: 999;
+	position: absolute;
+	bottom: 30px;
+	padding: 5px 30px;
+	border-radius: 20px;
+	border: 2px solid #0096FF;
+	background: transparent;
+	color: #0096FF;
+	transition: 400ms ease;
+	z-index: 999;
 }
 
 .form-btn-next:hover,
 .form-btn-prev:hover,
 .form-btn-submit:hover {
-  color: #fff;
-  background: #0096FF;
-  border: 2px solid #0096FF;
-}
+	color: #fff;
+	background: #0096FF;
+	border: 2px solid #0096FF;
+} 
 
 .form-btn-next,
 .form-btn-submit {
-  right: 30px;
+	right: 30px;
 }
 
 .form-btn-prev {
-  left: 30px;
+	left: 30px;
 }
 
 .form-slide h1 {
-  margin-top: 0px;
-  font-size: 25px;
+	margin-top: 0px;
+	font-size: 25px;
 }
 
 
 /* multi step form progress bar http://thecodeplayer.com/walkthrough/jquery-multi-step-form-with-progress-bar */
 /*progressbar*/
 #progressbar {
-  text-align: center;
-  margin-bottom: 30px;
-  overflow: hidden;
-  /*CSS counters to number the steps*/
-  counter-reset: step;
+	text-align: center;
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
 }
 #progressbar li {
-  list-style-type: none;
-  width: calc(100% / 6);
-  float: left;
-  position: relative;
+	list-style-type: none;
+	width: calc(100% / 6);
+	float: left;
+	position: relative;
 }
 #progressbar li:before {
-  content: counter(step, decimal);
-  counter-increment: step;
-  width: 30px;
-  line-height: 30px;
-  display: block;
-  font-size: 14px;
-  color: #0096FF;
-  border-radius: 3px;
-  margin: 0px auto 5px;
-  background: #FFF;
-  /*border: 2px solid rgb(0, 150, 255);*/
+    content: counter(step, decimal);
+    counter-increment: step;
+    width: 30px;
+    line-height: 30px;
+    display: block;
+    font-size: 14px;
+    color: #0096FF;
+    border-radius: 3px;
+    margin: 0px auto 5px;
+    background: #FFF;
+    /*border: 2px solid rgb(0, 150, 255);*/
 }
 /*progressbar connectors*/
 #progressbar li:after {
-  content: '';
-  width: calc(100% - 30px);
-  height: 2px;
-  background: white;
-  position: absolute;
-  left: -50%;
-  top: 15px;
-  transform: translateX(15px);
-  z-index: -1; /*put it behind the numbers*/
+	content: '';
+	width: calc(100% - 30px);
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 15px;
+	transform: translateX(15px);
+	z-index: -1; /*put it behind the numbers*/
 }
 #progressbar li:first-child:after {
-  /*connector not needed before the first step*/
-  content: none;
+	/*connector not needed before the first step*/
+	content: none;
 }
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
