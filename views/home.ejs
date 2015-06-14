@@ -1,0 +1,85 @@
+<% include layout/header.ejs %>
+
+<div class="row">
+  <div class="col-md-8">
+    <h1>Welcome</h1>
+    <img src="images/<%= user_info.foto %>" alt="">
+    <p><%= user_info.fullname %></p>
+    <div>
+      <h3>Job Type</h3>
+      <p><%= user_info.job %></p>
+    </div>
+
+    <div>
+      <h3>Party</h3>
+      <p><%= user_info.party_name %></p>
+    </div>
+
+    <div>
+      <h3>Guild</h3>
+      <p><%= user_info.guild_name %></p>
+    </div>
+
+    <div>
+      <h3>Job Level</h3>
+      <p><%= user_info.job_level %></p>
+    </div>
+
+    <div>
+      <h3>Infection Gauge</h3>
+      <p><%= user_info.infection_level %></p>
+    </div>
+
+    <div>
+      <h3>Aegis Gauge</h3>
+      <p><%= user_info.aegis_gauge %></p>
+    </div>
+
+  </div>
+  <div class="col-md-4">
+    <h1>Quest</h1>
+
+    <div>
+      <h2>Daily Quest</h2>
+
+      <div>
+        <h3>Nama Quest</h3>
+        <form action="">
+          <input type="file">
+          <button type="submit">Upload</button>
+        </form>
+      </div>
+
+      <div>
+        <h3>Nama Quest</h3>
+        <form action="">
+          <input type="file">
+          <button type="submit">Upload</button>
+        </form>
+      </div>
+    </div>
+
+    <div>
+      <h2>Amazing Quest</h2>
+
+      <div>
+        <h3>Nama Quest</h3>
+        <form action="">
+          <input type="file">
+          <button type="submit">Upload</button>
+        </form>
+      </div>
+
+      <div>
+        <h3>Nama Quest</h3>
+        <form action="">
+          <input type="file">
+          <button type="submit">Upload</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<% include layout/footer.ejs %>

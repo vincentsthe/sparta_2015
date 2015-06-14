@@ -57,6 +57,7 @@ module.exports = function (passport) {
     player.job = "";
     player.job_level = 0;
     player.infection_level = 0;
+    player.aegis_gauge = 0;
 
     var images = req.files.foto;
     var fileName = user.nim_tpb;

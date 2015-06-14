@@ -39,8 +39,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var routes = require('./routes/index')(passport);
+var userRoutes = require('./routes/user');
 
 app.use('/', routes);
+app.use('/', userRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
