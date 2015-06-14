@@ -6,10 +6,24 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
+
+// Configuring Passport
+var passport = require('passport');
+var expressSession = require('express-session');
+app.use(expressSession({
+  secret: "Sparta20!5",
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+var flash = require('connect-flash');
+app.use(flash());
+
+var initPassport = require('./passport/init');
+initPassport(passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,8 +38,9 @@ app.use(multer({dest:'./public/images/'}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var routes = require('./routes/index')(passport);
+
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

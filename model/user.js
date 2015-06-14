@@ -18,4 +18,8 @@ user.insert = function (record, callback) {
   });
 };
 
+
+user.findById = function () {
+
+};
 module.exports = user;
