@@ -1,149 +1,197 @@
 <% include layout/header %>
 
 <div class="container">
-  <div class="row">
-    <form class="col-md-6 col-md-offset-3" action="" method="POST"  enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" required name="email">
-      </div>
+      <div class="row">
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" required name="password">
-      </div>
+        <div class="col-md-6 col-md-offset-3">
+          <ul id="progressbar">
+            <li class="active"><p class="sr-only">INFORMASI AKUN</p></li>
+            <li><p class="sr-only">INFORMASI PESERTA</p></li>
+            <li><p class="sr-only">INFORMASI TAMBAHAN PESERTA</p></li>
+            <li><p class="sr-only">KONTAK PESERA</p></li>
+            <li><p class="sr-only">DOMISILI PESERTA</p></li>
+            <li><p class="sr-only">INFORMASI WALI</p></li>
+          </ul>
 
-      <div class="form-group">
-        <label for="foto">Foto</label>
-        <input type="file" id="foto" required name="foto">
-      </div>
+          <form class="form" action="" method="POST" enctype="multipart/form-data">
 
-      <div class="form-group">
-        <label for="nama">Nama lengkap</label>
-        <input type="text" class="form-control" id="nama" placeholder="Nama lengkap" required name="nama_lengkap">
-      </div>
+            <!-- Username & Password -->
+            <div class="form-slide form-slide-1 active">
+              <h1>INFORMASI AKUN</h1>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" required name="email">
+              </div>
 
-      <div class="form-group">
-        <label for="nama">Nama panggilan</label>
-        <input type="text" class="form-control" id="nama" placeholder="Nama panggilan" required name="nama_panggilan">
-      </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" required name="password">
+              </div>    
+            </div>
+            
+            <!-- Identitas -->
+            <div class="form-slide form-slide-2">
+              <h1>INFORMASI PESERTA</h1>
+              <div class="form-group">
+                <label for="foto">Foto</label>
+                <input type="file" id="foto" required name="foto">
+              </div>
 
-      <div class="form-group">
-        <label for="nimTPB">NIM TPB</label>
-        <input type="text" class="form-control" id="nimTPB" placeholder="NIM TPB" required name="nim_tpb">
-      </div>
+              <div class="form-group col-xs-7 nama-lengkap">
+                <label for="nama">Nama lengkap</label>
+                <input type="text" class="form-control" id="nama" placeholder="Nama lengkap" required name="nama_lengkap">
+              </div>
 
-      <div class="form-group">
-        <div>
-          <label for="nimJurusan">Jurusan</label>
+              <div class="form-group col-xs-5 nama-panggilan">
+                <label for="nama">Nama panggilan</label>
+                <input type="text" class="form-control" id="nama" placeholder="Nama panggilan" required name="nama_panggilan">
+              </div>
+
+              <div class="form-group">
+                <label for="nimTPB">NIM TPB</label>
+                <input type="text" class="form-control" id="nimTPB" placeholder="NIM TPB" required name="nim_tpb">
+              </div>
+
+              <div class="form-group">
+                <div>
+                  <label for="nimJurusan">Jurusan</label>
+                </div>
+                <div>
+                  <label>
+                    <input type="radio" id="Jurusan" placeholder="Jurusan" required name="jurusan" value="IF"> IF
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    <input type="radio" id="Jurusan" placeholder="Jurusan" required name="jurusan" value="STI"> STI
+                  </label>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-slide form-slide-3">
+              <h1>INFORMASI TAMBAHAN PESERTA</h1>
+              <div class="form-group">
+                <label for="tempatLahir">Tempat lahir</label>
+                <input type="text" class="form-control" id="tempatLahir" placeholder="Tempat lahir" required name="tempat_lahir">
+              </div>
+
+              <div class="form-group">
+                <label for="tanggalLahir">Tanggal lahir</label>
+                <input type="date" class="form-control" id="tanggalLahir" placeholder="YYY-MM-DD" required name="tanggal_lahir">
+              </div>
+
+              <div class="form-group">
+                <label for="golonganDarah">Golongan darah</label>
+                <input type="text" class="form-control" id="golonganDarah" placeholder="Golongan Darah" required name="golongan_darah">
+              </div>
+
+              <div class="form-group">
+                <label for="riwayatPenyakit">Riwayat penyakit</label>
+                <input type="text" class="form-control" id="riwayatPenyakit" placeholder="Riwayat Penyakit" required name="riwayat_penyakit">
+              </div>
+
+              <div class="form-group">
+                <label for="riwayatPenyakit">Hasil Tes MBTI</label>
+                <select class="form-control" id="riwayatPenyakit" placeholder="Riwayat penyakit" required name="mbti">
+                  <option value="ENFJ">ENFJ</option>
+                  <option value="INFJ">INFJ</option>
+                  <option value="ENFP">ENFP</option>
+                  <option value="INFP">INFP</option>
+                  <option value="INTJ">INTJ</option>
+                  <option value="ENTJ">ENTJ</option>
+                  <option value="INTP">INTP</option>
+                  <option value="ENTP">ENTP</option>
+                  <option value="ESFP">ESFP</option>
+                  <option value="ISFP">ISFP</option>
+                  <option value="ESFJ">ESFJ</option>
+                  <option value="ISFJ">ISFJ</option>
+                  <option value="ISTP">ISTP</option>
+                  <option value="ESTP">ESTP</option>
+                  <option value="ISTJ">ISTJ</option>
+                  <option value="ESTJ">ESTJ</option>
+                </select>
+              </div>
+
+            </div>
+            
+            <!-- Kontak -->
+            <div class="form-slide form-slide-4">
+              <h1>KONTAK PESERTA</h1>
+              <div class="form-group">
+                <label for="noHP">Nomor HP</label>
+                <input type="tel" class="form-control" id="noHP" placeholder="Nomor HP" required name="nomor_telepon">
+              </div>
+
+              <div class="form-group">
+                <label for="akunTwitter">Twitter</label>
+                <input type="text" class="form-control" id="akunTwitter" placeholder="Akun Twitter" required name="id_twitter">
+              </div>
+
+              <div class="form-group">
+                <label for="akunFacebook">Facebook</label>
+                <input type="text" class="form-control" id="akunFacebook" placeholder="Akun Facebook" required name="id_facebook">
+              </div>
+
+              <div class="form-group">
+                <label for="akunLine">Line</label>
+                <input type="text" class="form-control" id="akunLine" placeholder="Akun Line" required name="id_line">
+              </div>
+
+            </div>
+
+            
+            <!-- Alamat -->
+            <div class="form-slide form-slide-5">
+              <h1>DOMISILI PESERTA</h1>
+              <div class="form-group">
+                <label for="daerahAsal">Asal daerah</label>
+                <input type="text" class="form-control" id="daerahAsal" placeholder="Asal daerah" required name="asal_daerah">
+              </div>
+
+              <div class="form-group">
+                <label for="smaAsal">Asal SMA</label>
+                <input type="text" class="form-control" id="smaAsal" placeholder="Asal SMA" required name="asal_sma">
+              </div>
+
+              <div class="form-group">
+                <label for="alamatBandung">Alamat Bandung</label>
+                <input type="text" class="form-control" id="alamatBandung" placeholder="Alamat Bandung" required name="alamat_bandung">
+              </div>
+
+              <div class="form-group">
+                <label for="alamatRumah">Alamat rumah</label>
+                <input type="text" class="form-control" id="alamatRumah" placeholder="Alamat rumah" required name="alamat_rumah">
+              </div>
+
+            </div>
+            
+            <!-- Identitas Wali -->
+            <div class="form-slide form-slide-6">
+              <h1>INFORMASI WALI</h1>
+              <div class="form-group">
+                <label for="namaWali">Nama wali</label>
+                <input type="text" class="form-control" id="namaWali" placeholder="Nama wali" required name="nama_wali">
+              </div>
+
+              <div class="form-group">
+                <label for="kontakWali">Kontak wali</label>
+                <input type="text" class="form-control" id="kontakWali" placeholder="Kontak wali" required name="kontak_wali">
+              </div>
+
+            </div>
+            
+
+            <button class="form-btn-prev" type="button">Back</button>
+            <button class="form-btn-next" type="button">Next</button>
+            <button type="submit" class="form-btn-submit">Submit</button>
+
+          </form> 
         </div>
-        <div>
-          <label>
-            <input type="radio" id="Jurusan" placeholder="Jurusan" required name="jurusan" value="IF"> IF
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="radio" id="Jurusan" placeholder="Jurusan" required name="jurusan" value="STI"> STI
-          </label>
-        </div>
-      </div>
+        
 
-      <div class="form-group">
-        <label for="noHP">Nomor HP</label>
-        <input type="tel" class="form-control" id="noHP" placeholder="Nomor HP" required name="nomor_telepon">
       </div>
-
-      <div class="form-group">
-        <label for="akunTwitter">Twitter</label>
-        <input type="text" class="form-control" id="akunTwitter" placeholder="Akun Twitter" required name="id_twitter">
-      </div>
-
-      <div class="form-group">
-        <label for="akunFacebook">Facebook</label>
-        <input type="text" class="form-control" id="akunFacebook" placeholder="Akun Facebook" required name="id_facebook">
-      </div>
-
-      <div class="form-group">
-        <label for="akunLine">Line</label>
-        <input type="text" class="form-control" id="akunLine" placeholder="Akun Line" required name="id_line">
-      </div>
-
-      <div class="form-group">
-        <label for="alamatBandung">Alamat Bandung</label>
-        <input type="text" class="form-control" id="alamatBandung" placeholder="Alamat Bandung" required name="alamat_bandung">
-      </div>
-
-      <div class="form-group">
-        <label for="golonganDarah">Golongan darah</label>
-        <input type="text" class="form-control" id="golonganDarah" placeholder="Golongan Darah" required name="golongan_darah">
-      </div>
-
-      <div class="form-group">
-        <label for="riwayatPenyakit">Riwayat penyakit</label>
-        <input type="text" class="form-control" id="riwayatPenyakit" placeholder="Riwayat Penyakit" required name="riwayat_penyakit">
-      </div>
-
-      <div class="form-group">
-        <label for="riwayatPenyakit">Hasil Tes MBTI</label>
-        <select class="form-control" id="riwayatPenyakit" placeholder="Riwayat penyakit" required name="mbti">
-          <option value="ENFJ">ENFJ</option>
-          <option value="INFJ">INFJ</option>
-          <option value="ENFP">ENFP</option>
-          <option value="INFP">INFP</option>
-          <option value="INTJ">INTJ</option>
-          <option value="ENTJ">ENTJ</option>
-          <option value="INTP">INTP</option>
-          <option value="ENTP">ENTP</option>
-          <option value="ESFP">ESFP</option>
-          <option value="ISFP">ISFP</option>
-          <option value="ESFJ">ESFJ</option>
-          <option value="ISFJ">ISFJ</option>
-          <option value="ISTP">ISTP</option>
-          <option value="ESTP">ESTP</option>
-          <option value="ISTJ">ISTJ</option>
-          <option value="ESTJ">ESTJ</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="tempatLahir">Tempat lahir</label>
-        <input type="text" class="form-control" id="tempatLahir" placeholder="Tempat lahir" required name="tempat_lahir">
-      </div>
-
-      <div class="form-group">
-        <label for="tanggalLahir">Tanggal lahir</label>
-        <input type="date" class="form-control" id="tanggalLahir" placeholder="Tanggal lahir" required name="tanggal_lahir">
-      </div>
-
-      <div class="form-group">
-        <label for="namaWali">Nama wali</label>
-        <input type="text" class="form-control" id="namaWali" placeholder="Nama wali" required name="nama_wali">
-      </div>
-
-      <div class="form-group">
-        <label for="kontakWali">Kontak wali</label>
-        <input type="text" class="form-control" id="kontakWali" placeholder="Kontak wali" required name="kontak_wali">
-      </div>
-
-      <div class="form-group">
-        <label for="daerahAsal">Asal daerah</label>
-        <input type="text" class="form-control" id="daerahAsal" placeholder="Asal daerah" required name="asal_daerah">
-      </div>
-
-      <div class="form-group">
-        <label for="smaAsal">Asal SMA</label>
-        <input type="text" class="form-control" id="smaAsal" placeholder="Asal SMA" required name="asal_sma">
-      </div>
-
-      <div class="form-group">
-        <label for="alamatRumah">Alamat rumah</label>
-        <input type="text" class="form-control" id="alamatRumah" placeholder="Alamat rumah" required name="alamat_rumah">
-      </div>
-
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-  </div>
-</div>
+    </div>
 
 <% include layout/footer %>
