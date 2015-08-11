@@ -1,0 +1,68 @@
+<% include layout/header.ejs %>
+
+    <div class="container">
+      <div class="user-profile">
+        <h1 class="welcome-text">Edit Nilai</h1>
+        <p class="user-name"><%= user_info.fullname %></p>
+        
+        <div class="row">
+          <div class="col-sm-4">
+            <div>
+              <h3 class="user-status-heading">Job Type</h3>
+              <p class="user-status"><%= user_info.job %></p> 
+            </div>    
+          </div>
+
+          <div class="col-sm-4">
+            <div>
+              <h3 class="user-status-heading">Party</h3>
+              <p class="user-status"><%= user_info.party_name %></p>
+            </div>    
+          </div>
+
+          <div class="col-sm-4">
+            <div>
+              <h3 class="user-status-heading">Guild</h3>
+              <p class="user-status">SYNTAX</p>
+            </div>            
+          </div>
+        </div>
+
+      <form class="form" action="" method="POST" enctype="multipart/form-data">
+        <div class="row">        
+          <div class="col-xs-4">
+            <div>
+              <h3 class="user-status-heading">Job Exp</h3>
+              <p class="user-status">  
+                <input type="text" class="form-control" id="exp" name="exp" value="<%= user_info.job_exp %>">
+              </p>
+            </div>    
+          </div>
+
+          <div class="col-xs-4">
+            <div>
+              <h3 class="user-status-heading">Infection Gauge</h3>
+              <p class="user-status">
+                <input type="text" class="form-control" id="infection" name="infection" value="<%= user_info.infection_level %>"></p>
+            </div>    
+          </div>
+
+          <div class="col-xs-4">
+            <div>
+              <h3 class="user-status-heading">Aegis Gauge</h3>
+              <p class="user-status">
+                <input type="text" class="form-control" id="aegis" name="aegis" value="<%= user_info.aegis_gauge %>"></p>
+            </div>    
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+      </form>
+
+      </div>
+    </div>
+
+<% include layout/footer.ejs %>

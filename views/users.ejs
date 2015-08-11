@@ -1,0 +1,58 @@
+<% include layout/header %>
+
+<div class="container">      
+  <div class="user-profile">
+    
+    <div class="user-identity">
+      <div class="user-image">
+        <img src="/images/syntax.jpg">  
+      </div>
+      <p class="user-name text-center">SYNTAX</p>
+    </div>
+    
+    <!-- Slider container -->
+    <div class="gallery js-flickity">
+      
+    <% user_list.forEach(function(user) { %>
+      <!-- Slider item -->
+      <div class="gallery-cell">
+
+        <div class="row guild-identity">
+          <div class="col-sm-3 admin">
+            <img src="/images/<%= user.adminFoto %>" alt="">
+            <p class="navi-admin-header">Admin</p>
+            <p class="navi-admin-nickname"><%= user.adminNickname %></p>
+          </div>
+
+          <div class="col-sm-6">
+            <p class="party-name"><%= user.party_name %></p>
+          </div>
+
+          <div class="col-sm-3 navi">
+            <img src="/images/<%= user.naviFoto %>" alt="">
+            <p class="navi-admin-header">Navigator</p>
+            <p class="navi-admin-nickname"><%= user.naviNickname %></p>
+          </div>
+        </div>
+
+        <div class="row guild-member-list">
+        <% user.member.forEach(function(member) { %>
+          <div class="col-sm-3 guild-member">
+            <img src="/images/<%= member.foto %>" alt="">
+            <p class="guild-member-name"><%= member.nickname %></p>
+          </div>
+        <% }); %>
+        </div>
+        <!-- row not fixed yet -->
+
+      </div>
+      <!-- End slider item -->
+    <% }); %>
+
+    </div>
+
+  </div>
+
+</div>
+
+<% include layout/footer %>

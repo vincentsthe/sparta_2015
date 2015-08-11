@@ -1,0 +1,34 @@
+<% include layout/header.ejs %>
+
+    <div class="container">
+
+      <h2>Quest List</h2>
+      <% quest_list.forEach(function(quest) { %>
+        <% var i = quest_status.map(function(x) {return x.quest_id; }).indexOf(quest.id); %>
+
+        <div class="panel panel-info" style="background-color: rgba(255, 255, 255, 0.21)">
+          <div class="panel-heading">
+            <h3 class="panel-title"><a href="/quest/<%= quest.id %>"><%= quest.name %></a></h3>
+          </div>
+          <div class="panel-body">
+            <%= quest.description %>
+            <br>
+            <b>Deadline: </b> <%= quest.end_date %>
+            <br>
+            <b>EXP: </b> <%= quest.exp %>
+            <br><br>
+            <a type="button" class="btn btn-primary" href="/quest/<%= quest.id %>">Lakukan Quest!</a>
+            
+            <% if ( i != -1 ) { %>
+              Sudah mengumpulkan
+              <% if ( admin ) { %>
+                <%= quest_status[i].file %>
+              <% } %>
+            <% } %>
+          </div>
+        </div>
+      <% }); %>
+
+    </div>
+
+<% include layout/footer.ejs %>

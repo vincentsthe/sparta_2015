@@ -7,7 +7,7 @@ driver.async = async;
 
 var mysql = require('mysql');
 var mysqlpool = mysql.createPool({
-  connectionLimit: 100,
+  connectionLimit: 1000,
   host: conf.dbHost,
   user: conf.dbUser,
   password: conf.dbPassword,

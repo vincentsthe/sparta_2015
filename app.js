@@ -11,16 +11,31 @@ var app = express();
 // Configuring Passport
 var passport = require('passport');
 var expressSession = require('express-session');
+var FileStore = require('session-file-store')(expressSession);
+
 app.use(expressSession({
+  store: new FileStore,
   secret: "Sparta20!5",
   resave: true,
   saveUninitialized: true
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
 var flash = require('connect-flash');
 app.use(flash());
+
+app.use(function(req, res, next) {
+  res.locals.login = req.isAuthenticated();
+  res.locals.admin = false;
+  if (req.isAuthenticated()) {
+    res.locals.admin = (req.user.access >= 4);
+    res.locals.canView = (req.user.access >= 3);
+  }
+  next();
+});
+
 
 var initPassport = require('./passport/init');
 initPassport(passport);
@@ -35,11 +50,17 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer({dest:'./public/images/'}));
+app.use(multer({dest:'./public/uploads/'}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 var routes = require('./routes/index')(passport);
 var userRoutes = require('./routes/user');
+
+/*Abaikan by: feryandi*/
+var adminRoutes = require('./routes/admin');
+app.use('/', adminRoutes);
+/* ****************** */
 
 app.use('/', routes);
 app.use('/', userRoutes);

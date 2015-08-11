@@ -1,0 +1,57 @@
+<% include layout/header %>
+
+<% if (admin) { %>
+<form class="form" action="" method="POST" enctype="multipart/form-data">
+<% } %>
+<%= party_data.leader %>
+<%= party_data.gold %>
+<br><br>
+<img src="/images/<%= admin_data.foto %>" width="50px" height="50px">
+<%= admin_data.fullname %>
+<%= admin_data.nickname %>
+<br><br>
+<img src="/images/<%= navi_data.foto %>" width="50px" height="50px">
+<%= navi_data.fullname %>
+<%= navi_data.nickname %>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Nama Lengkap</th>
+            <th>Panggilan</th>
+            <th>Job</th>
+            <th>Level</th>
+            <th>EXP</th>
+            <th>Infection</th>
+            <th>Aegis</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% party_list.forEach(function(party) { %>
+            <tr>
+                <td><img src="/images/<%= party.foto %>" width="50px" height="50px"></td>
+                <td><%= party.fullname %></td>
+                <td><%= party.nickname %></td>
+                <td><%= party.job %></td>
+                <td><%= party.level %></td>
+                <% if (!admin) { %>
+                    <td><%= party.exp %></td>
+                    <td><%= party.infection %></td>
+                    <td><%= party.aegis %></td>
+                <% } else { %>                
+                    <td><input type="text" class="form-control" id="exp_<%= party.id %>" name="exp_<%= party.id %>" value="<%= party.exp %>"></td>
+                    <td><input type="text" class="form-control" id="infection_<%= party.id %>" name="infection_<%= party.id %>" value="<%= party.infection %>"></td>
+                    <td><input type="text" class="form-control" id="aegis_<%= party.id %>" name="aegis_<%= party.id %>" value="<%= party.aegis %>"></td>
+                <% } %>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+<% if (admin) { %>
+<div class="form-group">
+  <button type="submit" class="btn btn-primary">Masukkan Nilai</button>
+</div>
+</form>
+<% } %>
+
+<% include layout/footer %>

@@ -1,0 +1,118 @@
+<% include layout/header %>
+
+<link rel="stylesheet" href="/stylesheets/quiz.css">
+<div class="container">
+  <br><br>
+
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+    
+      <div class="row">
+        <div class="col-md-6 text-center">  
+          <div class="score">
+
+            <div class="form-group">
+              <label>Score</label>
+              <div class="scorer">
+                -1
+              </div>
+            </div>
+          
+          </div>
+        </div>
+        
+        <div class="col-md-6 text-center">
+
+          <div class="form-group">
+            <label>Time</label>
+            <div class="timer">
+                Loading...
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="quiz_card">
+        <br>
+        <div class="photo text-center">
+            <img class="the_photo" src="" width="150px">
+        </div>
+        <br>
+        <input id="user_answer" type="text" class="form-control">
+        <center><button id="checker" class="btn btn-primary" onclick="checkAnswer()">Check</button></center>
+      </div>
+    </div>
+  </div>
+
+</div> 
+
+<script>
+  var base_count = 60;
+  var count = base_count;
+  var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+
+  var data = <%-JSON.stringify(user_list)%>;
+  var i = -1;
+
+  var score = 0;
+
+  function timer()
+  {
+    if (count == base_count) { next(); }
+    count=count-1;
+    if (count < 0)
+    {
+       //clearInterval(counter);
+       //counter ended, do something here
+       //next();
+       //count = base_count;
+
+       $("#checker").hide();
+       $("#user_answer").val(data[i].nickname);
+
+       return;
+    }
+
+    //Do code for showing the number of seconds here
+    $(".timer").text(count);
+  }
+
+  function next() {
+    i = Math.floor((Math.random() * 155));
+    
+    $(".scorer").text(score);
+    $("#user_answer").val("");
+
+    $(".the_photo").attr("src", "/images/" + data[i].foto);
+  }
+
+  function checkAnswer() {
+    var photo = $('.photo');
+
+    if ( (document.getElementById("user_answer").value).toLowerCase() == (data[i].nickname).toLowerCase() ) {
+      //alert("true");
+
+      photo.toggleClass('flipInY animated');
+      photo.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e) {
+        $(e.target).removeClass('flipInY animated');
+      });
+
+      count += 3;
+      if (count >= 60) { count = 59; }
+
+      score++;
+      next();
+    } else {
+      //alert(" is false");
+
+      photo.toggleClass('shake animated');
+      photo.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e) {
+        $(e.target).removeClass('shake animated');
+      });
+    }
+  }
+
+</script>
+
+<% include layout/footer %>

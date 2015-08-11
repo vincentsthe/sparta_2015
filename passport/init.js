@@ -10,7 +10,8 @@ module.exports = function(passport){
 
 	passport.deserializeUser(function(id, done) {
 		driver.mysqlpool.getConnection(function (err, connection) {
-      connection.query("select * from user where id=" + id,function (err, rows){
+      connection.query("select * from user NATURAL JOIN player where id=" + id,function (err, rows){
+          connection.release();
         done(err, rows[0]);
       });
     });

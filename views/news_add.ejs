@@ -1,0 +1,35 @@
+<% include layout/header %>
+
+<form class="form" action="" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="picture">Gambar</label>
+    <input type="file" id="picture" required name="picture">
+  </div>
+
+  <div class="form-group">
+    <label for="title">Judul</label>
+    <input type="text" class="form-control" id="title" placeholder="Chapter X" required name="title">
+  </div>
+
+  <div class="form-group">
+    <label for="sub_title">Sub-Judul</label>
+    <input type="text" class="form-control" id="sub_title" placeholder="Subtitle" required name="sub_title">
+  </div>
+
+  <div class="form-group">
+    <label for="overview">Ringkasan</label>
+    <textarea class="form-control" id="overview" rows="4" required name="overview"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="content">Isi Artikel</label>
+    <textarea class="form-control" id="content" rows="8" required name="content"></textarea>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+</form>
+
+<% include layout/footer %>

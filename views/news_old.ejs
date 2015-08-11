@@ -1,0 +1,25 @@
+<% include layout/header %>
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>email</th>
+            <th>Nama Lengkap</th>
+            <th>nim_tpb</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% news_list.forEach(function(news) { %>
+            <tr>
+                <td><%= news.id %></td>
+                <td><%= news.title %></td>
+                <td><%= news.sub_title %></td>
+                <td><%= news.overview %></td>
+                <td><%= news.content %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>
+
+<% include layout/footer %>
