@@ -1,0 +1,39 @@
+<% include layout/header %>
+
+  <div class="container">
+    <form class="form" action="" method="POST" enctype="multipart/form-data">
+
+        <h3><%= quest.name %></h3>
+
+        <label for="description"><%= quest.description %></label>
+
+        <h5 for="end_date">Deadline</h5><%= quest.end_date %>
+        <h5 for="exp">EXP</h5><%= quest.exp %>
+
+      <% if (!admin) { %>
+        <div class="form-group">
+          <h5 for="tugas">Uploader</h5>
+          File yang diterima hanya *.jpg, *.jpeg, *.png, *zip, dan *.pdf serta berukurang kurang dari 5 MB
+          <input type="file" id="tugas" required name="tugas">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+        <% if (quest.uploaded) { %>
+          SUDAH UPLOAD
+        <% } else { %>
+          BELUM UPLOAD
+        <% } %>
+      <% } else { %>
+        <div class="form-group">
+          <!--<button type="button" class="btn btn-danger" onclick="location.href='/quest/delete/<%= quest.id %>';">Delete</button>-->
+        </div>
+        <%= quest.submitted %> orang telah mengumpulkan
+      <% } %>
+
+    </form>
+  </div>
+
+<% include layout/footer %>

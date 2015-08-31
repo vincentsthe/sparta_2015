@@ -1,0 +1,30 @@
+<% include layout/header %>
+
+<% party_list.forEach(function(quest) { %>
+    <% if ( quest.id != 0 ) { %>
+        <% var i = quest_data.map(function(x) {return x.id; }).indexOf(quest.id); %>
+
+        Quest Name: <%= quest_data[i].name %>
+
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>Nama Lengkap</th>
+                    <th>File</th>
+                    <th>Waktu Pengumpulan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% (quest.submitter).forEach(function(party) { %>
+                    <tr>
+                        <td><%= party.fullname %></td>
+                        <td><a href="/uploads/<%= party.file %>" download="<%= party.file %>"><%= party.file %></a></td>
+                        <td><%= party.time %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } %>
+<% }); %>
+
+<% include layout/footer %>

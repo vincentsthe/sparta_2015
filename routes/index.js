@@ -3,6 +3,7 @@ var router = express.Router();
 var md5 = require('MD5');
 var fs = require('fs');
 var path = require('path');
+var flash = require('connect-flash');
 
 var driver = require('../utility/driver');
 var userModel = require('../model/user');
@@ -11,11 +12,11 @@ var playerModel = require('../model/player');
 module.exports = function (passport) {
   /* GET home page. */
   router.get('/', function (req, res, next) {
-    res.render('index', {title: 'Express'});
+    res.render('index', {message: req.flash('error')});
   });
 
   router.post('/', passport.authenticate('login', {
-    successRedirect: '/home',
+    successRedirect: '/profile',
     failureRedirect: '/',
     failureFlash: true
   }), function (req, res, next) {
@@ -23,12 +24,26 @@ module.exports = function (passport) {
     console.log('login attempt');
   });
 
-  router.get('/register', function (req, res) {
+  router.get('/news', function (req, res) {
+    res.render('news');
+  });
+  router.get('/guide', function (req, res) {
+    res.render('guide');
+  });
+  router.get('/about', function (req, res) {
+    res.render('about');
+  });
+  router.get('/story', function (req, res) {
+    res.render('story');
+  });
+
+/*  router.get('/register', function (req, res) {
     res.render('register');
   });
 
   router.post('/register', function (req, res) {
     var postData = req.body;
+
 
     var user = {};
     user.email = postData.email;
@@ -89,29 +104,35 @@ module.exports = function (passport) {
     } else {
       res.send("photo is not a valid image");
     }
-  });
+  }); */
 
-  router.get('/yang_udah_daftar', function (req, res) {
-    var data = [];
+  router.get('/members', function (req, res) {
+  /*  var data = [];
     driver.mysqlpool.getConnection(function (err, connection) {
       if (err) {
         console.dir(err);
       } else {
 
-        var query = "SELECT u.id, u.email, u.nim_tpb, u.jurusan, p.fullname"
-          + " FROM user u"
-          + " INNER JOIN player p ON u.id=p.id";
+        var query = "SELECT u.id, u.email, u.nim_tpb, u.jurusan, u.foto, p.fullname, p.nickname, p.party_id, party.party_name" +
+          " FROM user u" +
+          " INNER JOIN player p ON u.id = p.id" +
+          " INNER JOIN party ON p.party_id = party.id " +
+          " WHERE p.guild_id = 1" +
+          " ORDER BY u.nim_tpb ASC";
         connection.query(query, function (err, row) {
+          connection.release();
           if (err) {
             console.dir(err);
           } else {
             for (var i = 0; i < row.length; i++) {
               var record = {};
               record.id = row[i].id;
-              record.email = row[i].email;
               record.nim_tpb = row[i].nim_tpb;
-              record.jurusan = row[i].jurusan;
+              record.foto = row[i].foto;
               record.fullname = row[i].fullname;
+              record.nickname = row[i].nickname;
+              record.party_id = row[i].party_id;
+              record.party_name = row[i].party_name;
 
               data.push(record);
             }
@@ -122,7 +143,8 @@ module.exports = function (passport) {
           }
         });
       }
-    });
+    });*/
+    res.redirect('/guild/syntax');
   });
 
   router.get('/detail/:id', function (req, res) {
@@ -139,6 +161,7 @@ module.exports = function (passport) {
           + " WHERE u.id=" + id;
 
         connection.query(query, function (err, rows) {
+          connection.release();
           if (err) {
             res.send("Id is not valid");
           } else {
@@ -147,6 +170,41 @@ module.exports = function (passport) {
             } else {
               res.json(rows[0]);
             }
+          }
+        });
+      }
+    });
+  });
+  
+/*Abaikan by: feryandi*/
+  router.get('/news', function (req, res) {
+    var data = [];
+    driver.mysqlpool.getConnection(function (err, connection) {
+      if (err) {
+        console.dir(err);
+      } else {
+
+        var query = "SELECT n.id, n.title, n.sub_title, n.overview, n.content"
+          + " FROM news n";
+        connection.query(query, function (err, row) {
+          if (err) {
+            console.dir(err);
+          } else {
+            var x = ( row.length > 4 ) ? 4 : row.length;
+            for (var i = 0; i < x; i++) {
+              var record = {};
+              record.id = row[i].id;
+              record.title = row[i].title;
+              record.sub_title = row[i].sub_title;
+              record.overview = row[i].overview;
+              record.content = row[i].content;
+
+              data.push(record);
+            }
+
+            res.render('news', {
+              news_list: data
+            });
           }
         });
       }

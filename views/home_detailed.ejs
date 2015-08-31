@@ -1,0 +1,73 @@
+<% include layout/header.ejs %>
+
+    <div class="container">
+      <div class="user-profile">
+        <h1 class="welcome-text">Welcome</h1>
+        <p class="user-name"><%= user_info.fullname %></p>
+        
+        <div class="row">
+          <div class="col-sm-4">
+            <div>
+              <h3 class="user-status-heading">Job Type</h3>
+              <p class="user-status"><%= user_info.job %></p> 
+            </div>    
+          </div>
+
+          <div class="col-sm-4">
+            <div>
+              <h3 class="user-status-heading">Party</h3>
+              <p class="user-status"><%= user_info.party_name %></p>
+            </div>    
+          </div>
+
+          <div class="col-sm-4">
+            <div>
+              <h3 class="user-status-heading">Guild</h3>
+              <p class="user-status">SYNTAX</p>
+            </div>            
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-4">
+            <div>
+              <h3 class="user-status-heading">Job Level</h3>
+              <p class="user-status"><%= user_info.job_level %></p>
+            </div>    
+          </div>
+          <div class="col-xs-4">
+            <div>
+              <h3 class="user-status-heading">Infection Gauge</h3>
+              <p class="user-status"><%= user_info.infection_level %></p>
+            </div>    
+          </div>
+          <div class="col-xs-4">
+            <div>
+              <h3 class="user-status-heading">Aegis Gauge</h3>
+              <p class="user-status"><%= user_info.aegis_gauge %></p>
+            </div>    
+          </div>
+        </div>
+      </div>
+
+      <h2>Details</h2>
+      Jurusan: <%= user_info.jurusan %><br>
+      TTL:<%= user_info.tempat_lahir %>, <%= user_info.tanggal_lahir %><br>
+      Alamat Bandung: <%= user_info.alamat_bandung %><br>
+      MBTI: <%= user_info.MBTI %><br>
+      Gol. Darah: <%= user_info.golongan_darah %><br>
+      Riwayat Penyakit: <%= user_info.riwayat_penyakit %><br>
+      ID Twitter: <%= user_info.id_twitter %><br>
+      ID FB: <%= user_info.id_facebook %><br>
+      ID LINE: <%= user_info.id_line %><br>
+      <br>
+      Kontak Wali: <%= user_info.kontak_wali %><br>
+      Asal Daerah: <%= user_info.asal_daerah %><br>
+      SMA: <%= user_info.asal_sma %><br>
+      Alamat Rumah: <%= user_info.alamat_rumah %><br>
+
+
+
+    </div>
+
+<% include layout/footer.ejs %>

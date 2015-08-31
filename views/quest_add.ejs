@@ -1,0 +1,53 @@
+<% include layout/header %>
+
+<form class="form" action="" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="name">Nama Quest</label>
+    <input type="text" class="form-control" id="name" placeholder="Madam Nunu" required name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Deskripsi</label>
+    <textarea class="form-control" id="description" rows="4" required name="description"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="start_date">Tanggal Mulai</label>
+    <input type="date" class="form-control" id="start_date" placeholder="YYYY-MM-DD" required name="start_date">
+    <label for="start_date">Jam Mulai</label>
+    <div class="row">
+      <div class="col-md-1">
+        <input type="number" class="form-control" id="start_hour" min="0" max="23" required name="start_hour">
+      </div>
+      <div class="col-md-1">
+        <input type="number" class="form-control" id="start_min" min="0" max="59" required name="start_min">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="end_date">Tanggal Berakhir</label>
+    <input type="date" class="form-control" id="end_date" placeholder="YYYY-MM-DD" required name="end_date">
+    <label for="start_date">Jam Berakhir</label>
+    <div class="row">
+      <div class="col-md-1">
+        <input type="number" class="form-control" id="end_hour" min="0" max="23" required name="end_hour">
+      </div>
+      <div class="col-md-1">
+        <input type="number" class="form-control" id="end_min" min="0" max="59" required name="end_min">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="exp">EXP</label>
+    <input type="text" class="form-control" id="exp" placeholder="0" required name="exp">
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+</form>
+
+<% include layout/footer %>

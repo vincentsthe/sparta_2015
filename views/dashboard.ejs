@@ -1,0 +1,98 @@
+<% include layout/header %>
+
+<div class="container">
+    <h1>Dashboard</h1>
+    <hr>
+
+    <center><h3> Wall of Syntax </h3></center>
+    <br>
+    <%  var users = 0,
+            expt = 0,
+            inft = 0,
+            aegt = 0;
+    %>
+    
+    <%  player_info.forEach(function(player) { %>
+            <a  type="button" 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                data-html="true" 
+                title=" <b><%= player.fullname %> (<%= player.nickname %>)</b> <br>
+                        EXP <%= player.job_exp %> <br>
+                        Aegis <%= player.aegis_gauge %> <br>
+                        Infection <%= player.infection_level %> <br>
+                        ">
+                <img src="/images/<%= player.foto %>" width="60px" height="60px">
+            </a>
+    <%  expt += player.job_exp;
+        inft += player.infection_level;
+        aegt += player.aegis_gauge;
+        users++;
+    %>
+    <%  }); %>
+
+    <br>
+    <center>
+        <%= users %> orang terdaftar <br>
+        Rata-rata EXP <%= (expt/users).toFixed(2) %> exp <br>
+        Rata-rata Infection <%= (inft/users).toFixed(2) %> <br>
+        Rata-rata Aegis <%= (aegt/users).toFixed(2) %> <br>
+    </center>
+
+    <center><h3> Top 15 Infected Players </h3></center>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nama Lengkap</th>
+                <th>NIM</th>
+                <th>EXP</th>
+                <th>Infection</th>
+                <th>Aegis</th>
+            </tr>
+        </thead>
+        <tbody>
+        <%  top_inf.forEach(function(player) { %>
+            <tr>
+                <td><img src="/images/<%= player.foto %>" width="60px" height="60px"></td>
+                <td><%= player.fullname %></td>
+                <td><%= player.nim_tpb %></td>
+                <td><%= player.job_exp %></td>
+                <td><%= player.infection_level %></td>
+                <td><%= player.aegis_gauge %></td>
+            </tr>
+        <%  }); %>
+        </tbody>
+    </table>
+
+    <center><h3> Top 10 High Aegis Players </h3></center>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nama Lengkap</th>
+                <th>NIM</th>
+                <th>EXP</th>
+                <th>Infection</th>
+                <th>Aegis</th>
+            </tr>
+        </thead>
+        <tbody>
+        <%  top_aeg.forEach(function(player) { %>
+            <tr>
+                <td><img src="/images/<%= player.foto %>" width="60px" height="60px"></td>
+                <td><%= player.fullname %></td>
+                <td><%= player.nim_tpb %></td>
+                <td><%= player.job_exp %></td>
+                <td><%= player.infection_level %></td>
+                <td><%= player.aegis_gauge %></td>
+            </tr>
+        <%  }); %>
+        </tbody>
+    </table>
+
+</div> 
+
+<% include layout/footer %>
